@@ -3,24 +3,21 @@
     <h2>Editing '<%= @list[:name] %>'</h2>
     <ul>
       <li>
-      <form action="/lists/<%= params[:id] %>/destroy" method="post">
-        <button type="submit" class="delete">Delete List</button>
-      </form>
+        <form class="delete" action="/lists/<%= params[:id] %>/destroy" method="post">
+          <button type="submit" class="delete">Delete List</button>
+        </form>
+      </li>
     </ul>
   </header>
 </section>
 
-<% content_for :header_links do %>
-  <a href="/lists">All List</a>
-<% end %>
-
 <form action="/lists/<%= params[:id] %>" method="post">
   <dl>
     <dt>
-      <label for="list_name">Enter the name for the list:</label>
+      <label for="list_name">Enter the new name for the list:</label>
     </dt>
     <dd>
-      <input name="list_name" placefolder="List Name" type="text" value="<%= params[:list_name] || @list[:name] %>">
+    <input name="list_name" placeholder="List Name" type="text" value="<%= params[:list_name] || @list[:name] %>">
     </dd>
   </dl>
   <fieldset class="actions">
